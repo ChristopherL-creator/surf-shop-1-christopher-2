@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Order } from 'src/app/model/order';
 import { Product } from 'src/app/model/product';
 import { User } from 'src/app/model/user';
 
@@ -76,6 +77,18 @@ export class UserService {
       // this.user.cart = this.user.cart.filter(id => id !== selectedProduct.id);
       this.updateUser();
       this.user = { ...this.user };
+    }
+  } 
+
+  saveOrder(date: Date, productNames: string[], total: number) {
+    if (this.user?.orders) {
+      if (!this.user.orders) {
+        this.user.orders = [];
+      } 
+      const newOrder: Order = {date: date, total: total, products: productNames}; 
+      this.user.orders.push(newOrder); 
+      this.updateUser(); 
+      this.user = {...this.user};
     }
   }
 
