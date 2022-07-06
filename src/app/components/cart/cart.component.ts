@@ -10,7 +10,8 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class CartComponent implements OnInit {
 
-  public products: Product[] = [];
+  public products: Product[] = []; 
+  public total: number = 0;
 
   constructor(private userS: UserService, private prodS: ProductService) {
     this.getUserCartProducts();
@@ -22,9 +23,20 @@ export class CartComponent implements OnInit {
   getUserCartProducts(){
     if (this.userS.user) {
       this.prodS.getUserCart(this.userS.user).subscribe({
-        next: res => this.products = res,
+        next: res => { 
+          this.products = res; 
+          this.total = this.caclulateTotal() 
+        },
         error: err => console.log(err)
       })
     }
+  }
+  
+  caclulateTotal() {
+    let sum = 0;
+    for (const product of this.products) {
+      sum += product.price
+    } 
+    return sum;
   }
 }

@@ -6,5 +6,13 @@
   <span>{{userS.user!.city}}</span>
   <span>{{userS.user!.address}}</span>
   <span>{{userS.user!.city}}</span>
-  <span>{{userS.user!.cardnumber}}</span>
+  <span>{{userS.user!.cardnumber}}</span> 
+  <h3>Storico</h3>
+  <div *ngIf="userS.user.orders"> 
+    <div *ngFor="let order of userS.user.orders" class="order-container"> 
+      <span>Data: {{order.date | date}}</span> 
+      <span>Totale: {{order.total | currency: '€'}}</span> 
+      <span *ngFor="let product of order.products">{{product}}</span>
+    </div>
+  </div>
 </div>

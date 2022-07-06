@@ -10,7 +10,7 @@ import { User } from 'src/app/model/user';
 export class UserService {
 
 
-  private readonly BASE_URL = 'https://62bd594ebac21839b6010d22.mockapi.io/users'
+  private readonly BASE_URL = 'https://628d3321a3fd714fd040dac4.mockapi.io/users'
 
   public user?: User;
 
