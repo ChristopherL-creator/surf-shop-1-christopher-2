@@ -1,6 +1,7 @@
 import { AbstractControl } from "@angular/forms";
 
-export function passwordValidator(control: AbstractControl){
+export function passwordValidator(control: AbstractControl){ 
+// control sempre input
   if (control.value.length < 8) {
     return { isPasswordValid: false };
   }

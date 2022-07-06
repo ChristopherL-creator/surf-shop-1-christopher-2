@@ -39,8 +39,10 @@ export class UserService {
   }
 
   register(user: User) {
-    const newUser = user;
-    newUser.dob = new Date(newUser.dob);
+    const newUser = user; 
+    // creo nuovo user
+    newUser.dob = new Date(newUser.dob); 
+    // converto date in string
     this.http.post<User>(this.BASE_URL, newUser, { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).subscribe({
       next: result => console.log(result),
       error: err => console.log(err)

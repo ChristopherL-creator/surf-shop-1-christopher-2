@@ -1,10 +1,13 @@
-<form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
+<form class="form" [formGroup]="registerForm" (ngSubmit)="register()"> 
+  <!-- associo form a formgroup, che ho costruito con formbuilider -->
 
   <h3>Account data</h3>
 
   <label for="email">email: </label>
-  <input id="email" type="text" formControlName="email">
-  <div *ngIf="!registerForm.get('email')!.valid && (registerForm.get('email')!.touched || registerForm.get('email')!.dirty)">
+  <input id="email" type="text" formControlName="email"> 
+  <!--  associo input a formcontrol con fromcontrollname -->
+  <div *ngIf="!registerForm.get('email')!.valid && (registerForm.get('email')!.touched || registerForm.get('email')!.dirty)"> 
+    <!-- touched: passato ma non toccato; dirty: scritto già qualcosa -->
     <span>mail obbligatoria</span>
   </div>
 
