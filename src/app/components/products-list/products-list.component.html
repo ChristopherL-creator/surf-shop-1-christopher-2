@@ -1,6 +1,7 @@
 <div class="container" >
   <div>
-    <input [(ngModel)]="searchString" id="search-input" type="text"><button (click)="search()">OK</button>
+    <input [(ngModel)]="searchString" id="search-input" type="text">
+    <button (click)="search()">OK</button>
     <select [(ngModel)]="selectedCategory" name="" id="category-select" (change)="filterByCategory()">
       <option value="">tutti i prodotti</option>
       <option value="tavole">tavole</option>
