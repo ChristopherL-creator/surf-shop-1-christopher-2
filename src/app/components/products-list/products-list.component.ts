@@ -26,7 +26,7 @@ export class ProductsListComponent implements OnInit {
     // const input = document.getElementById('search-input') as HTMLInputElement;
     // this.searchString = input!.value.trim().toLowerCase();
     this.pServ.getProducts(this.searchString).subscribe({
-      next: products => this.products = products,
+      next: products => {this.products = products},
       error: err => console.log(err)
     })
   }
