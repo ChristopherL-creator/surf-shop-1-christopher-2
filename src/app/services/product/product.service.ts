@@ -9,8 +9,6 @@ import { User } from 'src/app/model/user';
 })
 export class ProductService {
 
-
-
   private readonly BASE_URL = 'https://62bd594ebac21839b6010d22.mockapi.io/products'
 
   constructor(private http: HttpClient) { }
