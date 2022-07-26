@@ -31,5 +31,4 @@ export class ProductDetailComponent implements OnInit {
       this.userS.addToCart(this.selectedProduct);
     }
   }
-
 }
